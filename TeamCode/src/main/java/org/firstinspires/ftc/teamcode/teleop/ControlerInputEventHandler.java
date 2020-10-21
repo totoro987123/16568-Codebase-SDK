@@ -9,18 +9,26 @@ import java.util.HashMap;
 
 public class ControlerInputEventHandler {
 
+    // FINAL VARIABLES
     private final String eventsClassPath = "org.firstinspires.ftc.teamcode.events.controlerEvents.";
+    //private final String[] inputNamesBoolean = {"a", "b", "back", "dpad_down", "dpad_left", "dpad_right", "dpad_up", "left_bumper", "left_stick_button", "right_bumper", "right_stick_button", "x", "y"};
+    private final String[] inputNamesBoolean = {"a"};
 
+
+    // INSTANCE VARIABLES
     private GlobalVariables globalVariables;
+    private HashMap<String, Boolean> booleanInputStoreGamepad1 = new HashMap<String, Boolean>();
+    private HashMap<String, Boolean> booleanInputStoreGamepad2 = new HashMap<String, Boolean>();
 
-    private String[] inputNamesBoolean = {"a", "b", "back", "dpad_down", "dpad_left", "dpad_right", "dpad_up", "left_bumper", "left_stick_button", "right_bumper", "right_stick_button", "x", "y"};
-    private HashMap<String, Boolean> booleanInputStore = new HashMap<String, Boolean>();
-
+    // CONSTRUCTOR
     public ControlerInputEventHandler(GlobalVariables globalVariables) {
         this.globalVariables = globalVariables;
     }
 
-    private void updateGamepadStatus(Gamepad gamepad) {
+    // METHODS
+
+    // MAKE IT WORK WITH DIFFERENT GAMEPADS
+    private void updateGamepadStatus(Gamepad gamepad, String gamepadName, HashMap<String, Boolean> booleanInputStore) {
         Object object = (Object) gamepad;
         Class<?> gamepadClass = object.getClass();
 
@@ -31,16 +39,16 @@ public class ControlerInputEventHandler {
 
                 if ((lastValue != currentValue) && booleanInputStore.containsKey(variableName)) {
                     if (currentValue) {
-                        Class<?> eventClass = Class.forName(this.eventsClassPath + "Button" + variableName.toUpperCase() + "Press");
+                        Class<?> eventClass = Class.forName(this.eventsClassPath + "Button_" + gamepadName + "_" + variableName.toUpperCase() + "_Press");
                         Event event = (Event) eventClass.newInstance();
                         this.globalVariables.eventBus.post(event);
                     } else {
-                        Class<?> eventClass = Class.forName(this.eventsClassPath + "Button" + variableName.toUpperCase() + "Lift");
+                        Class<?> eventClass = Class.forName(this.eventsClassPath + "Button_" + gamepadName + "_" + variableName.toUpperCase() + "_Lift");
                         Event event = (Event) eventClass.newInstance();
                         this.globalVariables.eventBus.post(event);
                     }
                 }
-                this.booleanInputStore.put(variableName, currentValue);
+                booleanInputStore.put(variableName, currentValue);
 
             } catch (NoSuchFieldException e) {
                 System.out.println(e.toString());
@@ -56,5 +64,10 @@ public class ControlerInputEventHandler {
                 System.out.println(e.toString());
             }
         }
+    }
+
+    private void update() {
+        this.updateGamepadStatus(this.globalVariables.gamepad1, "gamepad1", this.booleanInputStoreGamepad1);
+        this.updateGamepadStatus(this.globalVariables.gamepad2, "gamepad2", this.booleanInputStoreGamepad2);
     }
 }
