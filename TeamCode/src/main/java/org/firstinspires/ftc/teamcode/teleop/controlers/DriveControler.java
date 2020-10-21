@@ -1,13 +1,13 @@
-package org.firstinspires.ftc.teamcode.teleop.inputs;
+package org.firstinspires.ftc.teamcode.teleop.controlers;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 
-public class DriveInput extends Input{
+public class DriveControler extends Controler {
 
-    public DriveInput(GlobalVariables vars){
+    public DriveControler(GlobalVariables vars){
         super.vars = vars;
     }
 

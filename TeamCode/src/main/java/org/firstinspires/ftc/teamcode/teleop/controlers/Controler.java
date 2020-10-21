@@ -1,8 +1,8 @@
-package org.firstinspires.ftc.teamcode.teleop.inputs;
+package org.firstinspires.ftc.teamcode.teleop.controlers;
 
 import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 
-public abstract class Input {
+public abstract class Controler {
     //Variables
     public GlobalVariables vars;
 

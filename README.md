@@ -828,7 +828,7 @@ Changes include:
  * Channel change is enabled in the FTC Robot Controller app for Moto G 2nd and 3rd Gen phones.
  * Users can now use annotations to register/disable their Op Modes.
  * Changes in the Android SDK, JDK and build tool requirements (minsdk=19, java 1.7, build tools 23.0.3).
- * Standardized units in analog input.
+ * Standardized units in analog controler.
  * Cleaned up code for existing analog sensor classes.
  * setChannelMode and getChannelMode were REMOVED from the DcMotorController class.  This is important - we no longer set the motor modes through the motor controller.
  * setMode and getMode were added to the DcMotor class.
