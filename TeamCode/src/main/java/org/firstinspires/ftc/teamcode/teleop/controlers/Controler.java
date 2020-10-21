@@ -4,7 +4,7 @@ import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 
 public abstract class Controler {
     //Variables
-    public GlobalVariables vars;
+    public GlobalVariables globalVariables;
 
     //Methods
     public abstract void update();

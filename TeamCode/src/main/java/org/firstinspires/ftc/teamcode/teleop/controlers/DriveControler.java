@@ -7,22 +7,22 @@ import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 
 public class DriveControler extends Controler {
 
-    public DriveControler(GlobalVariables vars){
-        super.vars = vars;
+    public DriveControler(GlobalVariables globalVariables){
+        super.globalVariables = globalVariables;
     }
 
     @Override
     public void update() {
-        double drive = -vars.gamepad1.left_stick_y;
-        double turn  =  vars.gamepad1.right_stick_x;
+        double drive = -globalVariables.gamepad1.left_stick_y;
+        double turn  =  globalVariables.gamepad1.right_stick_x;
 
         double leftPower = Range.clip(drive + turn, -1.0, 1.0);
         double rightPower   = Range.clip(drive - turn, -1.0, 1.0);
 
-        vars.fl.setPower(leftPower);
-        vars.bl.setPower(leftPower);
-        vars.fr.setPower(rightPower);
-        vars.br.setPower(rightPower);
+        globalVariables.fl.setPower(leftPower);
+        globalVariables.bl.setPower(leftPower);
+        globalVariables.fr.setPower(rightPower);
+        globalVariables.br.setPower(rightPower);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class DriveControler extends Controler {
 
     @Override
     public void stop() {
-        for (DcMotor wheel : vars.wheels) {
+        for (DcMotor wheel : globalVariables.wheels) {
             wheel.setPower(0);
         }
     }

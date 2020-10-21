@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.teleop.controlers.Controler;
 
 public class TeleOpMain extends OpMode
 {
-    private GlobalVariables vars;
+    private GlobalVariables globalVariables;
     private ControlerRegister controlerRegister;
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -19,14 +19,14 @@ public class TeleOpMain extends OpMode
     @Override
     public void init() {
 
-        vars = new GlobalVariables(hardwareMap);
-        vars.initTeleOp(gamepad1, gamepad2);
+        globalVariables = new GlobalVariables(hardwareMap);
+        globalVariables.initTeleOp(gamepad1, gamepad2);
 
-        Controler[] controlers = {
+        Controler[] controllers = {
 
         };
 
-        controlerRegister = new ControlerRegister(controlers);
+        controlerRegister = new ControlerRegister(controllers);
     }
 
 
