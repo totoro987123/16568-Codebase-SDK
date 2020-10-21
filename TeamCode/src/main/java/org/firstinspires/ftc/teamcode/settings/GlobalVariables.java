@@ -24,13 +24,6 @@ public class GlobalVariables {
     public DcMotor br; //back right motor
     public DcMotor[] wheels = new DcMotor[4];
 
-    //Wheel math values
-    public double wheelCircum = (1.97 * 2) * Math.PI;
-    public int ticksPerTurn = 1120; //our gear ratio is 1:
-
-    //Touch Sensor
-    public DigitalChannel digitalTouch;
-
     //Constructor
     public GlobalVariables(HardwareMap hwm){
         this.hwm = hwm;
@@ -60,10 +53,6 @@ public class GlobalVariables {
     public void initAuton() {
         //Run global init
         this.initGlobal();
-
-        //Set up touch sensor
-        digitalTouch = hwm.digitalChannel.get("touch_sensor");
-        digitalTouch.setMode(DigitalChannel.Mode.INPUT);
 
     }
 

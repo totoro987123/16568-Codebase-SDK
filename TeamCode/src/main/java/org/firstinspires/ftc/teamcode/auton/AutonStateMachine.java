@@ -10,13 +10,13 @@ import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 @Autonomous(name = "AutonStateMachine")
 
 public class AutonStateMachine extends OpMode {
-    private GlobalVariables vars;
+    private GlobalVariables globalVariables;
     private StateManager sm;
 
     @Override
     public void init() {
-        vars = new GlobalVariables(hardwareMap);
-        vars.initAuton();
+        globalVariables = new GlobalVariables(hardwareMap);
+        globalVariables.initAuton();
 
         State[] states = {
 

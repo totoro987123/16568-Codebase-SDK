@@ -4,7 +4,7 @@ import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 
 public abstract class State {
     //Variables
-    public GlobalVariables vars;
+    public GlobalVariables globalVariables;
 
     //Methods
     public abstract String toString();
