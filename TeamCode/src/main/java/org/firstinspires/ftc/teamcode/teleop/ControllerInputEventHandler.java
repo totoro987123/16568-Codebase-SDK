@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 
 import java.util.HashMap;
 
-public class ControlerInputEventHandler {
+public class ControllerInputEventHandler {
 
     // FINAL VARIABLES
     private final String eventsClassPath = "org.firstinspires.ftc.teamcode.events.controlerEvents.";
@@ -21,7 +21,7 @@ public class ControlerInputEventHandler {
     private HashMap<String, Boolean> booleanInputStoreGamepad2 = new HashMap<String, Boolean>();
 
     // CONSTRUCTOR
-    public ControlerInputEventHandler(GlobalVariables globalVariables) {
+    public ControllerInputEventHandler(GlobalVariables globalVariables) {
         this.globalVariables = globalVariables;
     }
 

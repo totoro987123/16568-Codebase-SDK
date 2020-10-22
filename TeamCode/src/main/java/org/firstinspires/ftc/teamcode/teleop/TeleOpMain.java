@@ -13,7 +13,7 @@ public class TeleOpMain extends OpMode
 {
     private GlobalVariables globalVariables;
     private ControlerRegister controlerRegister;
-    private ControlerInputEventHandler controlerInputEventHandler;
+    private ControllerInputEventHandler controllerInputEventHandler;
     private ElapsedTime runtime = new ElapsedTime();
 
 
@@ -28,7 +28,7 @@ public class TeleOpMain extends OpMode
         };
 
         controlerRegister = new ControlerRegister(controllers, this.globalVariables);
-        controlerInputEventHandler = new ControlerInputEventHandler(this.globalVariables);
+        controllerInputEventHandler = new ControllerInputEventHandler(this.globalVariables);
     }
 
 
@@ -45,7 +45,7 @@ public class TeleOpMain extends OpMode
 
     @Override
     public void loop() {
-        this.controlerInputEventHandler.update();
+        this.controllerInputEventHandler.update();
         this.controlerRegister.update();
 
         // Show the elapsed game time
