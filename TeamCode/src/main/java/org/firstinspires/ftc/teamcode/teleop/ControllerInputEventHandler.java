@@ -12,7 +12,7 @@ public class ControllerInputEventHandler {
     // FINAL VARIABLES
     private final String eventsClassPath = "org.firstinspires.ftc.teamcode.events.controlerEvents.";
     private final String[] inputNamesBoolean = {"a", "b", "back", "dpad_down", "dpad_left", "dpad_right", "dpad_up", "left_bumper", "left_stick_button", "right_bumper", "right_stick_button", "x", "y"};
-    //private final String[] inputNamesBoolean = {"a"};
+    //private final String[] inputNamesBoolean = {"a"}; // Testing list for only the A input.
 
 
     // INSTANCE VARIABLES

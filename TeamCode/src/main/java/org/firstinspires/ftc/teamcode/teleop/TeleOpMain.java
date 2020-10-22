@@ -40,7 +40,7 @@ public class TeleOpMain extends OpMode
 
     @Override
     public void start() {
-        this.runtime.reset();
+        runtime.reset();
         this.controlerRegister.start();
     }
 
@@ -50,8 +50,8 @@ public class TeleOpMain extends OpMode
         this.controlerRegister.update();
 
         // Show the elapsed game time
-        this.telemetry.addData("Status", "Run Time: " + runtime.toString());
-        this.telemetry.update();
+        telemetry.addData("Status", "Run Time: " + runtime.toString());
+        telemetry.update();
     }
 
     @Override
