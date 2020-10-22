@@ -11,8 +11,8 @@ public class ControlerInputEventHandler {
 
     // FINAL VARIABLES
     private final String eventsClassPath = "org.firstinspires.ftc.teamcode.events.controlerEvents.";
-    //private final String[] inputNamesBoolean = {"a", "b", "back", "dpad_down", "dpad_left", "dpad_right", "dpad_up", "left_bumper", "left_stick_button", "right_bumper", "right_stick_button", "x", "y"};
-    private final String[] inputNamesBoolean = {"a"};
+    private final String[] inputNamesBoolean = {"a", "b", "back", "dpad_down", "dpad_left", "dpad_right", "dpad_up", "left_bumper", "left_stick_button", "right_bumper", "right_stick_button", "x", "y"};
+    //private final String[] inputNamesBoolean = {"a"};
 
 
     // INSTANCE VARIABLES
@@ -26,8 +26,6 @@ public class ControlerInputEventHandler {
     }
 
     // METHODS
-
-    // MAKE IT WORK WITH DIFFERENT GAMEPADS
     private void updateGamepadStatus(Gamepad gamepad, String gamepadName, HashMap<String, Boolean> booleanInputStore) {
         Object object = (Object) gamepad;
         Class<?> gamepadClass = object.getClass();
@@ -66,7 +64,7 @@ public class ControlerInputEventHandler {
         }
     }
 
-    private void update() {
+    public void update() {
         this.updateGamepadStatus(this.globalVariables.gamepad1, "gamepad1", this.booleanInputStoreGamepad1);
         this.updateGamepadStatus(this.globalVariables.gamepad2, "gamepad2", this.booleanInputStoreGamepad2);
     }
