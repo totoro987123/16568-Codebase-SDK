@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode.teleop.systems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import org.firstinspires.ftc.teamcode.objects.Cachable;
+import org.firstinspires.ftc.teamcode.interfaces.Cacheable;
 
-public class Motor implements Cachable {
+public class Motor extends Cacheable {
 
     private DcMotor motorObject;
 
@@ -12,11 +12,11 @@ public class Motor implements Cachable {
         this.motorObject = motorObject;
     }
 
+
     @Override
     public Object get(Object object) {
-
         if (cache.containsKey(object)) {
-            return (Motor) cache.get(object);
+            return cache.get(object);
         }
 
         Motor newMotor = new Motor((DcMotor) object);
