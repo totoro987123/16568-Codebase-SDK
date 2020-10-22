@@ -31,6 +31,7 @@ public class TestControler extends Controler {
 
     @Override
     public void stop() {
+
     }
 
     @Subscribe
