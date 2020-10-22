@@ -16,7 +16,7 @@ public class ControlerInputEventHandler {
 
 
     // INSTANCE VARIABLES
-    private GlobalVariables globalVariables;
+    private final GlobalVariables globalVariables;
     private HashMap<String, Boolean> booleanInputStoreGamepad1 = new HashMap<String, Boolean>();
     private HashMap<String, Boolean> booleanInputStoreGamepad2 = new HashMap<String, Boolean>();
 
@@ -27,8 +27,7 @@ public class ControlerInputEventHandler {
 
     // METHODS
     private void updateGamepadStatus(Gamepad gamepad, String gamepadName, HashMap<String, Boolean> booleanInputStore) {
-        Object object = (Object) gamepad;
-        Class<?> gamepadClass = object.getClass();
+        Class<?> gamepadClass = ((Object) gamepad).getClass();
 
         for (String variableName : this.inputNamesBoolean) {
             try {
@@ -59,6 +58,8 @@ public class ControlerInputEventHandler {
             } catch (ClassNotFoundException e) {
                 System.out.println(e.toString());
             } catch (InstantiationException e) {
+                System.out.println(e.toString());
+            } catch (NullPointerException e) {
                 System.out.println(e.toString());
             }
         }

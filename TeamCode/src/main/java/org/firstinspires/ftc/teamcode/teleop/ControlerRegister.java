@@ -19,7 +19,6 @@ public class ControlerRegister {
     }
 
     //Public Methods
-
     public void update(){
         if (this.running) {
             for (Controler controler : this.controlers){
