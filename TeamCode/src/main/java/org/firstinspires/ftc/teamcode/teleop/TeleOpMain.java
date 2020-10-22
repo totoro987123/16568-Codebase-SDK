@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.settings.GlobalVariables;
 import org.firstinspires.ftc.teamcode.teleop.controlers.Controler;
+import org.firstinspires.ftc.teamcode.teleop.controlers.TestControler;
 
 @TeleOp(name="Basic: Iterative OpMode", group="Iterative Opmode")
 
@@ -20,15 +21,15 @@ public class TeleOpMain extends OpMode
     @Override
     public void init() {
 
-        globalVariables = new GlobalVariables(hardwareMap);
-        globalVariables.initTeleOp(gamepad1, gamepad2);
+        this.globalVariables = new GlobalVariables(hardwareMap);
+        this.globalVariables.initTeleOp(gamepad1, gamepad2);
 
         Controler[] controllers = {
-
+            new TestControler(this.globalVariables, this.telemetry)
         };
 
-        controlerRegister = new ControlerRegister(controllers, this.globalVariables);
-        controllerInputEventHandler = new ControllerInputEventHandler(this.globalVariables);
+        this.controlerRegister = new ControlerRegister(controllers, this.globalVariables);
+        this.controllerInputEventHandler = new ControllerInputEventHandler(this.globalVariables);
     }
 
 
@@ -39,8 +40,8 @@ public class TeleOpMain extends OpMode
 
     @Override
     public void start() {
-        runtime.reset();
-        controlerRegister.start();
+        this.runtime.reset();
+        this.controlerRegister.start();
     }
 
     @Override
@@ -49,8 +50,8 @@ public class TeleOpMain extends OpMode
         this.controlerRegister.update();
 
         // Show the elapsed game time
-        telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.update();
+        this.telemetry.addData("Status", "Run Time: " + runtime.toString());
+        this.telemetry.update();
     }
 
     @Override
