@@ -46,7 +46,6 @@ public class ControllerInputEventHandler {
                     }
                 }
                 booleanInputStore.put(variableName, currentValue);
-
             } catch (NoSuchFieldException e) {
                 System.out.println(e.toString());
             } catch (SecurityException e) {
